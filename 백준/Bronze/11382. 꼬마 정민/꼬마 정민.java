@@ -7,11 +7,28 @@ public class Main{
         
         long sum = 0;
         
-        String[] arr = input.split(" ");
+        //use split
+        //String[] arr = input.split(" ");
         
-        for(String str : arr) {
-        	sum += Long.parseLong(str);
+        //for(String str : arr) {
+        //	sum += Long.parseLong(str);
+        //}
+        //System.out.println(sum);
+        
+        //or 
+        
+        String buff = "";
+        
+        for(char c : input.toCharArray()){
+            if(c != ' '){
+            	buff += c;
+            }else{
+                sum += Long.parseLong(buff);
+                buff = "";
+            }
         }
-        System.out.println(sum);
+        sum += Long.parseLong(buff);
+        
+        System.out.print(sum);
     }
 }
